@@ -1,5 +1,7 @@
 pipeline {
-	agent any
+	agent {
+		docker {image 'maven:3.6.3'}
+	}
 	stages{
 		stage('Build')
 		{
@@ -23,4 +25,17 @@ pipeline {
 			}
 		}
 	}
+	
+	post{
+		always{
+			echo 'I am awesome,I run always'
+		}
+        success{
+			echo 'I will run when you are success'
+		}
+		failure{
+			echo 'I will run when you fail'
+		}
+  	}
+
 }	
