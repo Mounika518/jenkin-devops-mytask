@@ -2,7 +2,7 @@ pipeline {
 	agent {
   docker {
     alwaysPull true
-    image 'node:13.8'
+    image 'maven:3.9.6'
   }
 }
 	stages{
